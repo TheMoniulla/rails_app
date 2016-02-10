@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: monika
+  password:
+
+development:
+  <<: *default
+  database: rails_app_dev
+
+test:
+  <<: *default
+  database: rails_app_test

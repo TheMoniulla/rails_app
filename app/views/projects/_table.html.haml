@@ -1,0 +1,19 @@
+%table.table.table-striped
+  %tr
+    %th Name
+    %th Active
+    %th User
+    %th Actions
+  - projects.each do |project|
+    %tr
+      %td= project.name
+      %td
+        = project.active
+        - if project.active
+          = link_to 'Make this project inactive ', inactive_project_path(project), method: :put
+        - else
+          = link_to 'Make this project active', active_project_path(project), method: :put
+      %td= project.user
+      %td
+        = link_to 'Edit', edit_project_path(project)
+        = link_to 'Delete', project_path(project), method: :delete

@@ -1,0 +1,28 @@
+%h1 Users
+= link_to 'New user', new_user_path, class: 'btn btn-success'
+
+%table.table.table-striped
+  %tr
+    %th First name
+    %th Last name
+    %th E-mail
+    %th Projects
+    %th Actions
+  - @users.each do |user|
+    %tr
+      %td= user.first_name
+      %td= user.last_name
+      %td= user.email
+      %td= user.projects_for_display
+      %td
+        = link_to 'Show', user_path(user)
+
+
+= form_for @search, url: "/users/index" do |f|
+  = f.label :email
+  = f.text_field :email
+  = f.label :first_name
+  = f.text_field :first_name
+  = f.label :last_name
+  = f.text_field :last_name
+  = f.submit

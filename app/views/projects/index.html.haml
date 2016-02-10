@@ -1,0 +1,8 @@
+%h1 Projects
+= link_to 'New project', new_project_path, class: 'btn btn-success'
+
+%h2 Active projects
+= render partial: 'projects/table', locals: {projects: @active_projects}
+
+%h2 Inactive projects
+= render partial: 'projects/table', locals: {projects: @inactive_projects}
