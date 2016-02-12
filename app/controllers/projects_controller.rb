@@ -10,9 +10,6 @@ class ProjectsController < ApplicationController
     @active_projects = Project.where(active: true)
   end
 
-  def show
-  end
-
   def edit
   end
 

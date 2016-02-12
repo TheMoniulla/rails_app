@@ -16,13 +16,10 @@
       %td= user.projects_for_display
       %td
         = link_to 'Show', user_path(user)
+        = link_to 'Edit', edit_user_path(user)
 
-
-= form_for @search, url: "/users/index" do |f|
-  = f.label :email
-  = f.text_field :email
-  = f.label :first_name
-  = f.text_field :first_name
-  = f.label :last_name
-  = f.text_field :last_name
+= simple_form_for @search, url: '/users/index' do |f|
+  = f.input :email
+  = f.input :first_name
+  = f.input :last_name
   = f.submit
